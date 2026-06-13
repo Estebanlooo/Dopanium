@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://bo003f00dtg0g"]
+
+[ext_resource type="Texture2D" uid="uid://8ll3t5bw6or0" path="res://asset/platispeech.png" id="1_2mq61"]
+[ext_resource type="Script" uid="uid://c3vjrrmooykyk" path="res://script/label.gd" id="3_g6h8i"]
+
+[node name="tuto" type="Node2D" unique_id=670803169]
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1823944639]
+offset_right = 320.0
+offset_bottom = 258.0
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="." unique_id=456057846]
+offset_top = 171.0
+offset_right = 320.0
+offset_bottom = 258.0
+color = Color(0.48178947, 0.48178947, 0.48178947, 1)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1940038094]
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer" unique_id=1127311741]
+offset_top = 170.0
+offset_right = 180.0
+offset_bottom = 260.0
+texture = ExtResource("1_2mq61")
+
+[node name="Label" type="Label" parent="CanvasLayer" unique_id=583164647]
+offset_left = 107.0
+offset_top = 173.0
+offset_right = 308.0
+offset_bottom = 248.0
+theme_override_font_sizes/font_size = 10
+autowrap_mode = 2
+script = ExtResource("3_g6h8i")
+
+[node name="space" type="Label" parent="CanvasLayer" unique_id=2013445352]
+offset_left = 200.0
+offset_top = 248.0
+offset_right = 320.0
+offset_bottom = 259.0
+theme_override_font_sizes/font_size = 7
+text = "Appuyer sur espace pour continuer"
+autowrap_mode = 2

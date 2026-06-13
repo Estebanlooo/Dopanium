@@ -1,0 +1,86 @@
+[gd_scene format=3 uid="uid://clood6rmtrk0j"]
+
+[ext_resource type="Script" uid="uid://bfjg3ojnj2up5" path="res://script/menu_intro.gd" id="1_7miru"]
+[ext_resource type="Texture2D" uid="uid://byk8k7pyddw8r" path="res://asset/dopanew-sheet-noir.png" id="2_7miru"]
+[ext_resource type="AudioStream" uid="uid://c4r5n07gkot74" path="res://asset/dopanium_intr1.wav" id="3_1jmai"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1jmai"]
+atlas = ExtResource("2_7miru")
+region = Rect2(0, 0, 391, 104)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_01hjr"]
+atlas = ExtResource("2_7miru")
+region = Rect2(391, 0, 391, 104)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oinss"]
+atlas = ExtResource("2_7miru")
+region = Rect2(782, 0, 391, 104)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x0gjv"]
+atlas = ExtResource("2_7miru")
+region = Rect2(1173, 0, 391, 104)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ua2kt"]
+atlas = ExtResource("2_7miru")
+region = Rect2(1564, 0, 391, 104)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2le3j"]
+atlas = ExtResource("2_7miru")
+region = Rect2(1955, 0, 391, 104)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gdv2b"]
+atlas = ExtResource("2_7miru")
+region = Rect2(2346, 0, 391, 104)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pprcl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1jmai")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_01hjr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oinss")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x0gjv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ua2kt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2le3j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gdv2b")
+}],
+"loop": true,
+"name": &"default",
+"speed": 7.93
+}]
+
+[node name="Menu_intro" type="Node2D" unique_id=1556861589]
+script = ExtResource("1_7miru")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2077367684]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=605234587]
+offset_right = 322.0
+offset_bottom = 261.0
+color = Color(0, 0, 0, 1)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CanvasLayer" unique_id=1406284184 groups=["ui"]]
+position = Vector2(160.12018, 126.50001)
+scale = Vector2(0.8173078, 0.8173077)
+sprite_frames = SubResource("SpriteFrames_pprcl")
+autoplay = "default"
+frame_progress = 0.2962551
+
+[node name="Intr1" type="AudioStreamPlayer" parent="." unique_id=1637073207]
+stream = ExtResource("3_1jmai")
+volume_db = -4.123
+autoplay = true
+
+[connection signal="finished" from="Intr1" to="." method="_on_intr_1_finished"]

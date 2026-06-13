@@ -1,0 +1,139 @@
+[gd_scene format=3 uid="uid://dhbhkw7oa6nco"]
+
+[ext_resource type="Script" uid="uid://dns2744klsx5m" path="res://script/game/time.gd" id="1_onfsl"]
+[ext_resource type="Texture2D" uid="uid://bwqp28phy7ia3" path="res://asset/misc/usb.png" id="2_s2f8l"]
+[ext_resource type="Script" uid="uid://cl0geq31no01f" path="res://script/game/lose.gd" id="3_kee8w"]
+[ext_resource type="Script" uid="uid://c0k4a2ck4s8v5" path="res://script/game/win.gd" id="4_xh8xk"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ijgdr"]
+font_size = 12
+outline_size = 8
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 0
+
+[sub_resource type="LabelSettings" id="LabelSettings_s2f8l"]
+font_size = 24
+font_color = Color(0.8781749, 0, 0.19121328, 1)
+outline_size = 12
+outline_color = Color(0.37981448, 0, 0.0086636795, 1)
+shadow_size = 0
+
+[node name="UI" type="Control" unique_id=736442367]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Time" type="Label" parent="." unique_id=1828217053 groups=["ui_timer"]]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 5.0
+offset_right = 110.0
+offset_bottom = 28.0
+text = "Time left : 1'30''"
+label_settings = SubResource("LabelSettings_ijgdr")
+script = ExtResource("1_onfsl")
+
+[node name="Timer" type="Timer" parent="Time" unique_id=1244608135]
+
+[node name="Hacks" type="HBoxContainer" parent="." unique_id=1351949223]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -52.0
+offset_top = 6.0
+offset_right = -12.0
+offset_bottom = 46.0
+grow_horizontal = 0
+
+[node name="Shoot" type="MarginContainer" parent="Hacks" unique_id=1132306231 groups=["ui_hacks"]]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Hacks/Shoot" unique_id=1515332217]
+modulate = Color(0.9999998, 0.28043476, 0.2798586, 1)
+layout_mode = 2
+texture = ExtResource("2_s2f8l")
+stretch_mode = 2
+
+[node name="Label" type="Label" parent="Hacks/Shoot" unique_id=902442160]
+layout_mode = 2
+text = "3"
+horizontal_alignment = 1
+
+[node name="KillSelf" type="MarginContainer" parent="Hacks" unique_id=1203539946 groups=["ui_hacks"]]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Hacks/KillSelf" unique_id=617996536]
+modulate = Color(0.7917819, 0.49759966, 0, 1)
+layout_mode = 2
+texture = ExtResource("2_s2f8l")
+stretch_mode = 2
+
+[node name="Label" type="Label" parent="Hacks/KillSelf" unique_id=73598627]
+layout_mode = 2
+text = "1"
+horizontal_alignment = 1
+
+[node name="End" type="Control" parent="." unique_id=326557818 groups=["ui_end_menu"]]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Lose" type="VBoxContainer" parent="End" unique_id=317726879]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -55.0
+offset_top = -34.5
+offset_right = 55.0
+offset_bottom = 34.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("3_kee8w")
+
+[node name="Label" type="Label" parent="End/Lose" unique_id=862512992]
+layout_mode = 2
+text = "You lose !"
+label_settings = SubResource("LabelSettings_s2f8l")
+
+[node name="Button" type="Button" parent="End/Lose" unique_id=1365246982]
+layout_mode = 2
+text = "Retry"
+
+[node name="Win" type="VBoxContainer" parent="End" unique_id=1546388731]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -55.0
+offset_top = -34.5
+offset_right = 55.0
+offset_bottom = 34.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("4_xh8xk")
+
+[node name="Label" type="Label" parent="End/Win" unique_id=630352209]
+layout_mode = 2
+text = "You win !"
+label_settings = SubResource("LabelSettings_s2f8l")
+
+[node name="Button" type="Button" parent="End/Win" unique_id=523731459]
+layout_mode = 2
+text = "Next"
+
+[connection signal="pressed" from="End/Lose/Button" to="End/Lose" method="_on_button_pressed"]
+[connection signal="pressed" from="End/Win/Button" to="End/Win" method="_on_button_pressed"]

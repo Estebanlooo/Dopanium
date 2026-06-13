@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://cxjdrvapv1asg"]
+
+[ext_resource type="Script" uid="uid://csak224227io8" path="res://script/enemy/enemy.gd" id="1_f87vc"]
+[ext_resource type="SpriteFrames" uid="uid://cgi7q7dfjomja" path="res://asset/enemy/basic_frames.tres" id="2_f87vc"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vufel"]
+radius = 16.0
+
+[node name="Enemy" type="CharacterBody2D" unique_id=291869523 groups=["enemies"]]
+z_index = 1
+motion_mode = 1
+script = ExtResource("1_f87vc")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=616811194]
+sprite_frames = ExtResource("2_f87vc")
+animation = &"die"
+autoplay = "idle"
+offset = Vector2(7, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1942688651]
+position = Vector2(4, 0)
+shape = SubResource("CircleShape2D_vufel")
